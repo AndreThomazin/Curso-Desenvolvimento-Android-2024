@@ -21,12 +21,13 @@ import devandroid.thomazin.applistacurso.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
+    SharedPreferences.Editor listaVip;
+
     public static final String NOME_PREFERENCES = "pref_listavip";
 
     PessoaController controller;
 
     Pessoa pessoa;
-    Pessoa outraPessoa;
 
     EditText editPrimeiroNome;
     EditText editSobreNome;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
         controller = new PessoaController();
         controller.toString();
@@ -81,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
                 editSobreNome.setText("");
                 editNomeCurso.setText("");
                 editTelefoneContato.setText("");
+
+                listaVip.clear();
+                listaVip.apply();
+
                 Log.i("Button Limpar", "Comando limpar funcionou!!");
             }
         });
