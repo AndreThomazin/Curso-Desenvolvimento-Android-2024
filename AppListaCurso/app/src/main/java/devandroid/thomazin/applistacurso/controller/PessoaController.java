@@ -1,4 +1,4 @@
 package devandroid.thomazin.applistacurso.controller;
 
-public class CursoController {
+public class PessoaController {
 }
