@@ -38,7 +38,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:hint="@string/txt_hint_gasolina"
+                android:hint="@string/txt_hint_primeiro_nome"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:textColorHint="#546E7A" />
@@ -51,7 +51,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:hint="@string/txt_hint_etanol"
+                android:hint="@string/txt_hint_sobrenome"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:textColorHint="#546E7A" />
@@ -91,7 +91,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@color/vermelho"
                 android:gravity="center_horizontal"
-                android:text="@string/txt_resultado"
+                android:text="@string/txt_selecione_um_curso"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

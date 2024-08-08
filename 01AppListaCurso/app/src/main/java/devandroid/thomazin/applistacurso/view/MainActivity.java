@@ -1,4 +1,4 @@
-package devandroid.thomazin.appgaseta.view;
+package devandroid.thomazin.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +17,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.List;
 
-import devandroid.thomazin.appgaseta.R;
-import devandroid.thomazin.appgaseta.controller.CursoController;
-import devandroid.thomazin.appgaseta.controller.PessoaController;
-import devandroid.thomazin.appgaseta.model.Pessoa;
+import devandroid.thomazin.applistacurso.R;
+import devandroid.thomazin.applistacurso.controller.CursoController;
+import devandroid.thomazin.applistacurso.controller.PessoaController;
+import devandroid.thomazin.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 

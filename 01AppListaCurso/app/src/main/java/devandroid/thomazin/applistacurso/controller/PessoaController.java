@@ -1,12 +1,12 @@
-package devandroid.thomazin.appgaseta.controller;
+package devandroid.thomazin.applistacurso.controller;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import devandroid.thomazin.appgaseta.model.Pessoa;
-import devandroid.thomazin.appgaseta.view.MainActivity;
+import devandroid.thomazin.applistacurso.model.Pessoa;
+import devandroid.thomazin.applistacurso.view.MainActivity;
 
 public class PessoaController {
 

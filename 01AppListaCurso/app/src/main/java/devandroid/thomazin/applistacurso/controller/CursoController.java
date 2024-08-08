@@ -1,9 +1,9 @@
-package devandroid.thomazin.appgaseta.controller;
+package devandroid.thomazin.applistacurso.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import devandroid.thomazin.appgaseta.model.Curso;
+import devandroid.thomazin.applistacurso.model.Curso;
 
 public class CursoController {
 

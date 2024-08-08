@@ -1,4 +1,4 @@
-package devandroid.thomazin.appgaseta.model;
+package devandroid.thomazin.applistacurso.model;
 
 public class Curso {
 

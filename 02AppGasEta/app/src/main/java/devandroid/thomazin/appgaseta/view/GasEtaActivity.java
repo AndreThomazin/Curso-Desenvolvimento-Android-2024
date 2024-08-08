@@ -1,7 +1,6 @@
 package devandroid.thomazin.appgaseta.view;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 import devandroid.thomazin.appgaseta.R;
 import devandroid.thomazin.appgaseta.apoio.UtilGasEta;
@@ -23,7 +24,6 @@ public class GasEtaActivity extends AppCompatActivity {
 
     Combustivel combustivelGasolina;
     Combustivel combustivelEtanol;
-
 
     EditText editGasolina;
     EditText editEtanol;
@@ -39,6 +39,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
 
+    List<Combustivel> dados;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,16 @@ public class GasEtaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gaseta);
 
         controller = new CombustivelController(GasEtaActivity.this);
+
+        dados = controller.getListaDeDados();
+
+        Combustivel objAlteracao = dados.get(1);
+
+        objAlteracao.setNomeDoCombustivel("**GASOLINA**");;
+        objAlteracao.setPrecoDoCombustivel(5.97);
+        objAlteracao.setRecomendacao("Abastecer com Gasolina");
+
+        //controller.alterar(objAlteracao);
 
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
