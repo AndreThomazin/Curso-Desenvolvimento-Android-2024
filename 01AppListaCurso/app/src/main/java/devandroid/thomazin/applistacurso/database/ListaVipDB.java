@@ -105,5 +105,6 @@ public class ListaVipDB extends SQLiteOpenHelper {
 
         db.delete(tabela, "id=?",
                 new String[]{Integer.toString(id)});
+
     }
 }
