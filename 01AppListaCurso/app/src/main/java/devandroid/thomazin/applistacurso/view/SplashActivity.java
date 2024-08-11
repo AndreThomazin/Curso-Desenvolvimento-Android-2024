@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.thomazin.applistacurso.R;
+import devandroid.thomazin.applistacurso.database.ListaVipDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,6 +28,9 @@ public class SplashActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ListaVipDB db = new ListaVipDB(SplashActivity.this);
+
         comutarTelaSplash();
     }
 

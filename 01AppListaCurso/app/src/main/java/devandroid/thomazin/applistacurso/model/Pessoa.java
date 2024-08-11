@@ -6,6 +6,8 @@ public class Pessoa {
     // Atributos - Objetos - Molde - Template
     // Métodos de Acesso - Getters and Setters
 
+    private int id;
+
     private String primeiroNome;
     private String sobreNome;
     private String cursoDesejado;
@@ -13,6 +15,14 @@ public class Pessoa {
 
     public Pessoa(){ //construtor
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPrimeiroNome() {

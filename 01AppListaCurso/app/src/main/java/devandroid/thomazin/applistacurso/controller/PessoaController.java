@@ -1,21 +1,28 @@
 package devandroid.thomazin.applistacurso.controller;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import java.util.List;
+
+import devandroid.thomazin.applistacurso.database.ListaVipDB;
 import devandroid.thomazin.applistacurso.model.Pessoa;
 import devandroid.thomazin.applistacurso.view.MainActivity;
 
-public class PessoaController {
+public class PessoaController extends ListaVipDB{
 
     SharedPreferences preferences;
     SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "pref_listavip";
 
     public PessoaController(MainActivity mainActivity) {
+        super(mainActivity);
+
         preferences = mainActivity.getSharedPreferences(NOME_PREFERENCES, 0);
+
         listaVip = preferences.edit();
     }
 
@@ -29,6 +36,9 @@ public class PessoaController {
     }
 
     public void salvar(Pessoa pessoa) {
+
+        ContentValues dados = new ContentValues();
+
         Log.i("MVC_Controller", "Salvo: " + pessoa.toString());
 
         listaVip.putString("primeiroNome", pessoa.getPrimeiroNome());
@@ -36,9 +46,22 @@ public class PessoaController {
         listaVip.putString("nomeCurso", pessoa.getCursoDesejado());
         listaVip.putString("telefoneContato", pessoa.getTelefoneContato());
         listaVip.apply();
+
+        dados.put("primeiroNome", pessoa.getPrimeiroNome());
+        dados.put("sobreNome", pessoa.getSobreNome());
+        dados.put("cursoDesejado", pessoa.getCursoDesejado());
+        dados.put("telefoneContato", pessoa.getTelefoneContato());
+
+        salvarPessoa("Pessoa", dados);
+
     }
 
-    public Pessoa buscar(Pessoa pessoa) {
+    public List<Pessoa> getListaDeDados(){
+        return listarDados();
+    }
+
+    public Pessoa buscarDadosSharedPreferences(Pessoa pessoa) {
+
         pessoa.setPrimeiroNome(preferences.getString("primeiroNome", "NA"));
         pessoa.setSobreNome(preferences.getString("sobreNome", "NA"));
         pessoa.setCursoDesejado(preferences.getString("nomeCurso", "NA"));
@@ -51,4 +74,25 @@ public class PessoaController {
         listaVip.clear();
         listaVip.apply();
     }
+
+    public void alterar(Pessoa pessoa){
+
+        ContentValues dados = new ContentValues();
+
+        dados.put("id", pessoa.getId());
+        dados.put("primeiroNome", pessoa.getPrimeiroNome());
+        dados.put("sobreNome", pessoa.getSobreNome());
+        dados.put("cursoDesejado", pessoa.getCursoDesejado());
+        dados.put("telefoneContato", pessoa.getTelefoneContato());
+
+        alterarPessoa("Pessoa", dados);
+
+    }
+
+    public void deletar(int id){
+
+        deletarPessoa("Pessoa", id);
+
+    }
+
 }

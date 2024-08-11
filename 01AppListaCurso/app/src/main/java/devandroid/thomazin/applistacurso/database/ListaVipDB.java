@@ -13,7 +13,7 @@ import devandroid.thomazin.applistacurso.model.Pessoa;
 
 public class ListaVipDB extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "listaVip.db";
+    private static final String DB_NAME = "listavip.db";
     private static final int DB_VERSION = 1;
 
     Cursor cursor;
@@ -31,8 +31,8 @@ public class ListaVipDB extends SQLiteOpenHelper {
         // QUERY SQL para criar uma tabela "TABLE"
 
         String sqlTabelaPessoa = "CREATE TABLE Pessoa (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nome TEXT, " +
-                "sobrenome TEXT, " +
+                "primeiroNome TEXT, " +
+                "sobreNome TEXT, " +
                 "cursoDesejado TEXT, " +
                 "telefoneContato TEXT)";
 
@@ -44,7 +44,7 @@ public class ListaVipDB extends SQLiteOpenHelper {
 
     }
 
-    public void salvarObjeto(String tabela,
+    public void salvarPessoa(String tabela,
                              ContentValues dados){
         db.insert(tabela, null, dados);
     }
@@ -93,7 +93,7 @@ public class ListaVipDB extends SQLiteOpenHelper {
 
         int id = dados.getAsInteger("id");
 
-        db.update(tabela, dados, "id",
+        db.update(tabela, dados, "id=?",
                 new String[]{Integer.toString(id)});
     }
 
@@ -103,7 +103,7 @@ public class ListaVipDB extends SQLiteOpenHelper {
         // ID do registro a ser deletado
         // DELETE FROM TABLE WHERE id=?
 
-        db.delete(tabela, "id",
+        db.delete(tabela, "id=?",
                 new String[]{Integer.toString(id)});
     }
 }
